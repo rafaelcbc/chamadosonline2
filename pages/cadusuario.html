@@ -103,11 +103,54 @@
 
         <div id="page-wrapper">
             <div class="row">
+                <!-- Title -->
                 <div class="col-lg-12">
-                    <h1 class="page-header">Tela Principal</h1>
+                    <h1 class="page-header">Cadastro de Usuário</h1>
                 </div>
-                <!-- /.col-lg-12 -->
+                
+                <div class="col-lg-12">
+                    <div class="radio">
+                        <label>
+                            <input name="tipoUsuario" type="radio" value="funcionario" checked>Funcionário
+                        </label>
+                        <label>
+                            <input name="tipoUsuario" type="radio" value="administrador">Administrador
+                        </label>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="panel-body">
+                        <form role="form">
+                            <fieldset>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Nome" name="nome" type="text" autofocus>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="CPF" name="cpf" type="text">
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Login" name="login" type="text">
+                                </div>
+                                <div class="form-group">
+                                        <input class="form-control" placeholder="E-mail" name="email" type="email">
+                                    </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Senha" name="senha" type="password" value="">
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Repetir Senha" name="repetirsenha" type="password" value="">
+                                </div>
+                                
+                                <!-- Change this to a button or input when using this as a form -->
+                                <a href="index.html" class="btn btn-lg btn-primary btn-block disabled">Cadastrar</a>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+
             </div>
+            <!-- /.col-lg-12 -->
             
         </div>
         <!-- /#page-wrapper -->
