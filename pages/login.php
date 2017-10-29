@@ -23,13 +23,6 @@
     <!-- Custom Fonts -->
     <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
 </head>
 
 <body>
@@ -42,29 +35,15 @@
                         <h3 class="panel-title">Acesso ao Sistema</h3>
                     </div>
                     <div class="panel-body">
-                        <form role="form">
+                        <form action="../arquivos/logar.php" method="post">
                             <fieldset>
-                                <div class="col-md-12">
-                                    <div class="form-group col-md-6">
-                                        <label class="radio-inline">
-                                            <input name="tipoUsuario" type="radio" value="funcionario" checked> Funcionário
-                                        </label>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label class="radio-inline">
-                                            <input name="tipoUsuario" type="radio" value="administrador"> Administrador
-                                        </label>
-                                    </div>
-                                </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
+                                    <input class="form-control" placeholder="E-mail" name="usuario" type="text" autofocus>
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Senha" name="senha" type="password" value="">
                                 </div>
-                                
-                                <!-- Change this to a button or input when using this as a form -->
-                                <a href="index.html" class="btn btn-lg btn-primary btn-block">Entrar</a>
+                                <input class="btn btn-lg btn-primary btn-block" type="submit" name="logar" id"enviar">
                             </fieldset>
                         </form>
                     </div>
