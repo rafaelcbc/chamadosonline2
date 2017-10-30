@@ -1,3 +1,11 @@
+<?php 
+session_start();
+
+    if(!isset($_SESSION['logado_admin']) or $_SESSION['perfil'] != "administrador"):
+        session_destroy();
+        header("Location: login.php");
+    endif;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,7 +46,7 @@
 <body>
 
     <div id="wrapper">
-
+                
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
@@ -49,7 +57,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 
-                <a class="navbar-brand" href="admindex.html">Sistema de Chamados</a>
+                <a class="navbar-brand" href="admindex.php">Sistema de Chamados</a>
                 
                 <ul class="nav navbar-top-links navbar-right text-right">
                     <!-- /.dropdown -->
@@ -81,16 +89,16 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href="admindex.html"><i class="fa fa-home fa-fw"></i> Principal</a>
+                            <a href="admindex.php"><i class="fa fa-home fa-fw"></i> Principal</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-edit fa-fw"></i> Cadastro<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="admcadusuario.html"><i class="fa fa-users fa-fw"></i> Usuário</a>
+                                    <a href="admcadusuario.php"><i class="fa fa-users fa-fw"></i> Usuário</a>
                                 </li>
                                 <li>
-                                    <a href="admcadsetor.html"><i class="fa fa-print fa-fw"></i> Setor</a>
+                                    <a href="admcadsetor.php"><i class="fa fa-print fa-fw"></i> Setor</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -103,56 +111,32 @@
 
         <div id="page-wrapper">
             <div class="row">
-                <!-- Title -->
                 <div class="col-lg-12">
-                    <h1 class="page-header">Cadastro de Usuário</h1>
-                </div>
-                
-                <div class="col-lg-12">
-                    <div class="radio">
-                        <label>
-                            <input name="tipoUsuario" type="radio" value="funcionario" checked>Funcionário
-                        </label>
-                        <label>
-                            <input name="tipoUsuario" type="radio" value="administrador">Administrador
-                        </label>
-                    </div>
+                    <h1 class="page-header">Cadastro de Setor</h1>
                 </div>
 
                 <div class="col-lg-4">
                     <div class="panel-body">
                         <form role="form">
                             <fieldset>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Nome do Setor" name="nome" type="text" autofocus>
+                                </div>
                                 <div class="form-group input-group">
-                                    <input type="text" class="form-control" placeholder="CPF" name="cpf" type="text">
+                                    <input type="text" class="form-control" placeholder="Responsável do Setor" name="responsavel" type="text">
                                     <span class="input-group-btn">
                                         <button class="btn btn-default" type="button"><i class="fa fa-search"></i>
                                         </button>
                                     </span>
                                 </div>
-                                <div class="form-group">
-                                    <input class="form-control" placeholder="Nome Completo" name="nome" type="text" autofocus>
-                                </div>
-                                <div class="form-group">
-                                    <input class="form-control" placeholder="Login" name="login" type="text">
-                                </div>
-                                <div class="form-group">
-                                        <input class="form-control" placeholder="E-mail" name="email" type="email">
-                                    </div>
-                                <div class="form-group">
-                                    <input class="form-control" placeholder="Senha" name="senha" type="password" value="">
-                                </div>
-                                <div class="form-group">
-                                    <input class="form-control" placeholder="Repetir Senha" name="repetirsenha" type="password" value="">
-                                </div>
                                 
                                 <!-- Change this to a button or input when using this as a form -->
-                                <a href="admindex.html" class="btn btn-lg btn-primary btn-block disabled">Cadastrar</a>
+                                <a href="admindex.php" class="btn btn-lg btn-primary btn-block disabled">Cadastrar</a>
                             </fieldset>
                         </form>
                     </div>
                 </div>
-
+                                    
             </div>
             <!-- /.col-lg-12 -->
             

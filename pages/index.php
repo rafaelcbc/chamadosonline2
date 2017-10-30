@@ -1,3 +1,10 @@
+<?php session_start();
+
+    if(!isset($_SESSION['logado_funcionario'])or $_SESSION['perfil'] != "funcionario"):
+        session_destroy();
+        header("Location: login.php");
+    endif;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,7 +45,7 @@
 <body>
 
     <div id="wrapper">
-                
+
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
@@ -49,7 +56,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 
-                <a class="navbar-brand" href="admindex.html">Sistema de Chamados</a>
+                <a class="navbar-brand" href="index.php">Sistema de Chamados</a>
                 
                 <ul class="nav navbar-top-links navbar-right text-right">
                     <!-- /.dropdown -->
@@ -66,7 +73,7 @@
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
+                                <a href="login.php"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
                             </li>
                         </ul>
                         <!-- /.dropdown-user -->
@@ -81,16 +88,31 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href="admindex.html"><i class="fa fa-home fa-fw"></i> Principal</a>
+                            <a href="index.php"><i class="fa fa-home fa-fw"></i> Principal</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-edit fa-fw"></i> Cadastro<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-envelope fa-fw"></i> Caixa do Setor<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="admcadusuario.html"><i class="fa fa-users fa-fw"></i> Usuário</a>
+                                    <a href="setorchamados.php"><i class="fa fa-table fa-fw"></i> Ver Chamados</a>
                                 </li>
                                 <li>
-                                    <a href="admcadsetor.html"><i class="fa fa-print fa-fw"></i> Setor</a>
+                                    <a href="setorconcluidos.php"><i class="fa fa-check fa-fw"></i> Chamados Concluídos</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-edit fa-fw"></i> Abrir Chamado<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="chamadonovo.php"><i class="fa fa-file fa-fw"></i> Novo Chamado</a>
+                                </li>
+                                <li>
+                                    <a href="chamadospendentes.php"><i class="fa fa-clock-o fa-fw"></i> Chamados Pendentes</a>
+                                </li>
+                                <li>
+                                    <a href="chamadosconcluidos.php"><i class="fa fa-check fa-fw"></i> Chamados Concluídos</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -104,33 +126,13 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Cadastro de Setor</h1>
+                    <h1 class="page-header">Bem Vindo Nome!</h1>
                 </div>
-
-                <div class="col-lg-4">
-                    <div class="panel-body">
-                        <form role="form">
-                            <fieldset>
-                                <div class="form-group">
-                                    <input class="form-control" placeholder="Nome do Setor" name="nome" type="text" autofocus>
-                                </div>
-                                <div class="form-group input-group">
-                                    <input type="text" class="form-control" placeholder="Responsável do Setor" name="responsavel" type="text">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-default" type="button"><i class="fa fa-search"></i>
-                                        </button>
-                                    </span>
-                                </div>
-                                
-                                <!-- Change this to a button or input when using this as a form -->
-                                <a href="admindex.html" class="btn btn-lg btn-primary btn-block disabled">Cadastrar</a>
-                            </fieldset>
-                        </form>
-                    </div>
+                <!-- /.col-lg-12 -->
+                <div class="col-lg-12">
+                    <h3 class="page-body">Para iniciar selecione uma opção no menu.</h3>
                 </div>
-                                    
             </div>
-            <!-- /.col-lg-12 -->
             
         </div>
         <!-- /#page-wrapper -->

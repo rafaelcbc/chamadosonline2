@@ -1,3 +1,10 @@
+<?php session_start();
+
+    if(!isset($_SESSION['logado_funcionario'])or $_SESSION['perfil'] != "funcionario"):
+        session_destroy();
+        header("Location: login.php");
+    endif;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -49,7 +56,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 
-                <a class="navbar-brand" href="index.html">Sistema de Chamados</a>
+                <a class="navbar-brand" href="index.php">Sistema de Chamados</a>
                 
                 <ul class="nav navbar-top-links navbar-right text-right">
                     <!-- /.dropdown -->
@@ -66,7 +73,7 @@
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
+                                <a href="login.php"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
                             </li>
                         </ul>
                         <!-- /.dropdown-user -->
@@ -81,16 +88,16 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href="index.html"><i class="fa fa-home fa-fw"></i> Principal</a>
+                            <a href="index.php"><i class="fa fa-home fa-fw"></i> Principal</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-envelope fa-fw"></i> Caixa do Setor<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="setorchamados.html"><i class="fa fa-table fa-fw"></i> Ver Chamados</a>
+                                    <a href="setorchamados.php"><i class="fa fa-table fa-fw"></i> Ver Chamados</a>
                                 </li>
                                 <li>
-                                    <a href="setorconcluidos.html"><i class="fa fa-check fa-fw"></i> Chamados Concluídos</a>
+                                    <a href="setorconcluidos.php"><i class="fa fa-check fa-fw"></i> Chamados Concluídos</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -99,13 +106,13 @@
                             <a href="#"><i class="fa fa-edit fa-fw"></i> Abrir Chamado<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="chamadonovo.html"><i class="fa fa-file fa-fw"></i> Novo Chamado</a>
+                                    <a href="chamadonovo.php"><i class="fa fa-file fa-fw"></i> Novo Chamado</a>
                                 </li>
                                 <li>
-                                    <a href="chamadospendentes.html"><i class="fa fa-clock-o fa-fw"></i> Chamados Pendentes</a>
+                                    <a href="chamadospendentes.php"><i class="fa fa-clock-o fa-fw"></i> Chamados Pendentes</a>
                                 </li>
                                 <li>
-                                    <a href="chamadosconcluidos.html"><i class="fa fa-check fa-fw"></i> Chamados Concluídos</a>
+                                    <a href="chamadosconcluidos.php"><i class="fa fa-check fa-fw"></i> Chamados Concluídos</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

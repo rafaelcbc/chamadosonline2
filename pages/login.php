@@ -35,7 +35,7 @@
                         <h3 class="panel-title">Acesso ao Sistema</h3>
                     </div>
                     <div class="panel-body">
-                        <form action="../arquivos/logar.php" method="post">
+                    <form action="../arquivos/logar.php" method="post">
                             <fieldset>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="E-mail" name="usuario" type="text" autofocus>

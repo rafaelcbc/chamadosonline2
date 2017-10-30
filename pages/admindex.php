@@ -1,4 +1,12 @@
-<!DOCTYPE html>
+<?php 
+session_start();
+
+    if(!isset($_SESSION['logado_admin']) or $_SESSION['perfil'] != "administrador"):
+        session_destroy();
+        header("Location: login.php");
+    endif;
+?>
+<!DOCTYPE php>
 <html lang="en">
 
 <head>
@@ -26,10 +34,10 @@
     <!-- Custom Fonts -->
     <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- php5 Shim and Respond.js IE8 support of php5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/php5shiv/3.7.0/php5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
@@ -49,7 +57,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 
-                <a class="navbar-brand" href="index.html">Sistema de Chamados</a>
+                <a class="navbar-brand" href="admindex.php">Sistema de Chamados</a>
                 
                 <ul class="nav navbar-top-links navbar-right text-right">
                     <!-- /.dropdown -->
@@ -66,7 +74,7 @@
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
+                                <a href="login.php"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
                             </li>
                         </ul>
                         <!-- /.dropdown-user -->
@@ -81,31 +89,16 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href="index.html"><i class="fa fa-home fa-fw"></i> Principal</a>
+                            <a href="admindex.php"><i class="fa fa-home fa-fw"></i> Principal</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-envelope fa-fw"></i> Caixa do Setor<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-edit fa-fw"></i> Cadastro<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="setorchamados.html"><i class="fa fa-table fa-fw"></i> Ver Chamados</a>
+                                    <a href="admcadusuario.php"><i class="fa fa-users fa-fw"></i> Usuário</a>
                                 </li>
                                 <li>
-                                    <a href="setorconcluidos.html"><i class="fa fa-check fa-fw"></i> Chamados Concluídos</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-edit fa-fw"></i> Abrir Chamado<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="chamadonovo.html"><i class="fa fa-file fa-fw"></i> Novo Chamado</a>
-                                </li>
-                                <li>
-                                    <a href="chamadospendentes.html"><i class="fa fa-clock-o fa-fw"></i> Chamados Pendentes</a>
-                                </li>
-                                <li>
-                                    <a href="chamadosconcluidos.html"><i class="fa fa-check fa-fw"></i> Chamados Concluídos</a>
+                                    <a href="admcadsetor.php"><i class="fa fa-print fa-fw"></i> Setor</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -123,7 +116,7 @@
                 </div>
                 <!-- /.col-lg-12 -->
                 <div class="col-lg-12">
-                    <h3 class="page-body">Para iniciar selecione uma opção no menu.</h3>
+                    <h3>Para iniciar selecione uma opção no menu.</h3>
                 </div>
             </div>
             
