@@ -161,6 +161,13 @@ session_start();
                                 
                                 <!-- Change this to a button or input when using this as a form -->
                                 <input class="btn btn-lg btn-primary btn-block" type="submit" name="cadastrarusuario" >
+                                <br>
+                                <?php    
+                                    if (isset($_SESSION['erro'])):
+                                        echo $_SESSION['erro'];
+                                        unset ($_SESSION['erro']);
+                                    endif;
+                                ?>
                             </fieldset>
                         </form>
                     </div>
