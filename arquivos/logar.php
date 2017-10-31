@@ -42,10 +42,12 @@ if(!empty($usuario) AND !empty($senha)):
                 break;
         endswitch;
     else:
-        echo "<script>alert('Usuário ou senha incorretos');</script>";        
-    endif;
+        $_SESSION['erro'] = "<div class='alert alert-danger alert-dismissable'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Usuário ou senha inválidos</div>";
+        header("Location: ../pages/login.php");
+        endif;
 
 else:
-        echo "<script>alert('Todos os campos devem ser preenchidos');</script>";  
+         $_SESSION['erro'] = "<div class='alert alert-danger alert-dismissable'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Todos os campos devem ser preenchidos</div>";
+         header("Location: ../pages/login.php");
 endif;
 ?>
