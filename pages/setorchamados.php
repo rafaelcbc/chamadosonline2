@@ -1,8 +1,9 @@
 <?php session_start();
 
+    //Controle de acesso as página, conforme sessão ativa.
     if(!isset($_SESSION['logado_funcionario'])or $_SESSION['perfil'] != "funcionario"):
         unset($_SESSION['logado_admin'], $_SESSION['perfil']);
-        $_SESSION['erro'] = "<div class='alert alert-danger alert-dismissable'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Acesso negado.</div>";
+        $_SESSION['alerta_login'] = "<div class='alert alert-danger alert-dismissable'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Acesso negado.</div>";
         header("Location: login.php");
     endif;
 ?>

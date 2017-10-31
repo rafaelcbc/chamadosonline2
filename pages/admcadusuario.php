@@ -1,9 +1,10 @@
 <?php 
 session_start();
 
+    //Controle de acesso as página, conforme sessão ativa.
     if(!isset($_SESSION['logado_admin']) or $_SESSION['perfil'] != "administrador"):
         unset($_SESSION['logado_funcionario'], $_SESSION['perfil']);
-        $_SESSION['erro'] = "<div class='alert alert-danger alert-dismissable'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Acesso negado.</div>";
+        $_SESSION['alerta_login'] = "<div class='alert alert-danger alert-dismissable'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Acesso negado.</div>";
         header("Location: login.php");
     endif;
 ?>
@@ -64,7 +65,7 @@ session_start();
                     <!-- /.dropdown -->
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                        <i class="fa fa-user fa-fw"></i><?php echo $_SESSION['nome']?><i class="fa fa-caret-down"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-user">
                             <li>
@@ -124,6 +125,18 @@ session_start();
                     <div class="panel-body">
                         <form role="form" action="../cadastro/cadastrousuario.php" method="post">
                             <fieldset>
+                                <?php    
+                                    if (isset($_SESSION['erro'])):
+                                        echo $_SESSION['erro'];
+                                        unset ($_SESSION['erro']);
+                                    endif;
+                                ?>
+                                <?php    
+                                    if (isset($_SESSION['sucess'])):
+                                        echo $_SESSION['sucess'];
+                                        unset ($_SESSION['sucess']);
+                                    endif;
+                                ?>
                                 <div class="form-group">
                                     <div class="col-lg-6"> 
                                         <label class="radio-inline">
@@ -163,9 +176,9 @@ session_start();
                                 <input class="btn btn-lg btn-primary btn-block" type="submit" name="cadastrarusuario" >
                                 <br>
                                 <?php    
-                                    if (isset($_SESSION['erro'])):
-                                        echo $_SESSION['erro'];
-                                        unset ($_SESSION['erro']);
+                                    if (isset($_SESSION['sucess'])):
+                                        echo $_SESSION['sucess'];
+                                        unset ($_SESSION['sucess']);
                                     endif;
                                 ?>
                             </fieldset>

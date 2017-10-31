@@ -9,6 +9,6 @@ session_start();
         unset($_SESSION['logado_funcionario'], $_SESSION['perfil']);
     endif;
 
-    $_SESSION['erro'] = "<div class='alert alert-success alert-dismissable'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Sessão encerrada com sucesso.</div>";
+    $_SESSION['alerta_login'] = "<div class='alert alert-success alert-dismissable'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Sessão encerrada com sucesso.</div>";
     header("Location: ../pages/login.php");
 ?>

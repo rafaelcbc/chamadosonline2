@@ -36,16 +36,17 @@
                     </div>
                     <div class="panel-body">
                     <?php    
+                            //Exibição dos alertas de erro ou sucesso
                             session_start();
-                            if (isset($_SESSION['erro'])):
-                            echo $_SESSION['erro'];
-                            unset ($_SESSION['erro']);
+                            if (isset($_SESSION['alerta_login'])):
+                            echo $_SESSION['alerta_login'];
+                            unset ($_SESSION['alerta_login']);
                             endif;
                     ?>
                     <form action="../arquivos/logar.php" method="post">
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="E-mail" name="usuario" type="text" autofocus>
+                                    <input class="form-control" placeholder="Usuário" name="usuario" type="text" autofocus>
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Senha" name="senha" type="password" value="">
