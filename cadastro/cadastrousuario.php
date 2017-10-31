@@ -38,13 +38,14 @@ if(isset($_POST['cadastrarusuario'])):
     else: 
 
         //Query INSERT - Dados do formulário.
-        $sqlcadusuario=$pdo->prepare ("INSERT INTO tb_usuario (Nome, cpf, login, senha, email, id_perfil) VALUES (?, ?, ?, ?, ?, ?);");
+        $sqlcadusuario=$pdo->prepare ("INSERT INTO tb_usuario (Nome, cpf, login, senha, email, id_perfil, primeiro_acesso) VALUES (?, ?, ?, ?, ?, ?, ?);");
         $sqlcadusuario->bindValue(1,$nome);
         $sqlcadusuario->bindValue(2,$cpf);
         $sqlcadusuario->bindValue(3,$login);
         $sqlcadusuario->bindValue(4,md5($senha));
         $sqlcadusuario->bindValue(5,$email);
         $sqlcadusuario->bindValue(6,$perfil);
+        $sqlcadusuario->bindValue(7,true);
         $sqlcadusuario->execute();
 
         //Mensagem de cadastro realizado com sucesso.
