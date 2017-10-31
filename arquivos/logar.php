@@ -26,9 +26,7 @@ if(!empty($usuario) AND !empty($senha)):
     $login->bindValue(3,$perfil['id']);
     $login->execute();
 
-    //$_SESSION['nome'] = $login['nome'];
     $_SESSION['perfil'] = $perfil['nome'];
-    echo $_SESSION['perfil'];
 
     if($login->rowCount() == 1):
 
