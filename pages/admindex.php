@@ -2,7 +2,8 @@
 session_start();
 
     if(!isset($_SESSION['logado_admin']) or $_SESSION['perfil'] != "administrador"):
-        session_destroy();
+        unset($_SESSION['logado_funcionario'], $_SESSION['perfil']);
+        $_SESSION['erro'] = "<div class='alert alert-danger alert-dismissable'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Acesso negado.</div>";
         header("Location: login.php");
     endif;
 ?>
@@ -74,7 +75,7 @@ session_start();
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="login.php"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
+                                <a href="../arquivos/sair.php"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
                             </li>
                         </ul>
                         <!-- /.dropdown-user -->

@@ -2,7 +2,8 @@
 session_start();
 
     if(!isset($_SESSION['logado_admin']) or $_SESSION['perfil'] != "administrador"):
-        session_destroy();
+        unset($_SESSION['logado_funcionario'], $_SESSION['perfil']);
+        $_SESSION['erro'] = "<div class='alert alert-danger alert-dismissable'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Acesso negado.</div>";
         header("Location: login.php");
     endif;
 ?>
@@ -74,7 +75,7 @@ session_start();
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
+                                <a href="../arquivos/sair.php"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
                             </li>
                         </ul>
                         <!-- /.dropdown-user -->
@@ -117,22 +118,26 @@ session_start();
                 </div>
                 
                 <div class="col-lg-12">
-                    <div class="radio">
-                        <label>
-                            <input name="tipoUsuario" type="radio" value="funcionario" checked>Funcionário
-                        </label>
-                        <label>
-                            <input name="tipoUsuario" type="radio" value="administrador">Administrador
-                        </label>
-                    </div>
-                </div>
+
 
                 <div class="col-lg-4">
                     <div class="panel-body">
-                        <form role="form">
+                        <form role="form" action="../cadastro/cadastrousuario.php" method="post">
                             <fieldset>
+                                <div class="form-group">
+                                    <div class="col-lg-6"> 
+                                        <label class="radio-inline">
+                                            <input type="radio" name="perfil" value="administrador">Administrador
+                                        </label>
+                                    </div>
+                                    <div class="col-lg-6"> 
+                                        <label class="radio-inline">
+                                            <input type="radio" name="perfil" value="funcionario" checked>Funcionário
+                                        </label>
+                                    </div>
+                                </div><br>
                                 <div class="form-group input-group">
-                                    <input type="text" class="form-control" placeholder="CPF" name="cpf" type="text">
+                                    <input type="text" class="form-control"  placeholder="CPF" name="cpf" >
                                     <span class="input-group-btn">
                                         <button class="btn btn-default" type="button"><i class="fa fa-search"></i>
                                         </button>
@@ -155,7 +160,7 @@ session_start();
                                 </div>
                                 
                                 <!-- Change this to a button or input when using this as a form -->
-                                <a href="admindex.html" class="btn btn-lg btn-primary btn-block disabled">Cadastrar</a>
+                                <input class="btn btn-lg btn-primary btn-block" type="submit" name="cadastrarusuario" >
                             </fieldset>
                         </form>
                     </div>
