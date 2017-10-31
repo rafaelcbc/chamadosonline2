@@ -43,7 +43,7 @@
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Senha" name="senha" type="password" value="">
                                 </div>
-                                <input class="btn btn-lg btn-primary btn-block" type="submit" name="logar" id"enviar">
+                                <input class="btn btn-lg btn-primary btn-block" type="submit" name="logar">
                             </fieldset>
                         </form>
                     </div>

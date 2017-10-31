@@ -42,12 +42,10 @@ if(!empty($usuario) AND !empty($senha)):
                 break;
         endswitch;
     else:
-        echo "Usuário ou senha incorretos";
-
+        echo "<script>alert('Usuário ou senha incorretos');</script>";        
     endif;
 
 else:
-    echo "Todos os campos devem ser preenchidos";
-
+        echo "<script>alert('Todos os campos devem ser preenchidos');</script>";  
 endif;
 ?>
