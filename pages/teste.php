@@ -30,29 +30,13 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
-                <div class="login-panel panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Acesso ao Sistema</h3>
-                    </div>
-                    <div class="panel-body">
-                    <form action="../arquivos/logar.php" method="post">
-                            <fieldset class="teste">
-                                <div class="form-group">
-                                    <input class="form-control" placeholder="E-mail" name="usuario" type="text" autofocus>
-                                </div>
-                                <div class="form-group">
-                                    <input class="form-control" placeholder="Senha" name="senha" type="password" value="">
-                                </div>
-                                <input class="btn btn-lg btn-primary btn-block" type="submit" name="logar" id"enviar">
-                            </fieldset>
-                        </form>
-                    </div>
-                    <button onclick="usuarioSenhaInvalidos();">Teste</button>
-                </div>
+                <button onclick="usuarioSenhaInvalidos();">Teste</button>
+                <div class="teste"></div>
             </div>
         </div>
     </div>
 
+    
     <!-- Validações em JavaScript -->
     <script src="../js/validacoes.js"></script>
     
