@@ -138,26 +138,25 @@ session_start();
                                     endif;
                                 ?>
                                 <div class="form-group">
-                                    <div class="col-lg-6"> 
-                                        <label class="radio-inline">
-                                            <input type="radio" name="perfil" value="administrador">Administrador
-                                        </label>
-                                    </div>
-                                    <div class="col-lg-6"> 
-                                        <label class="radio-inline">
-                                            <input type="radio" name="perfil" value="funcionario" checked>Funcionário
-                                        </label>
-                                    </div>
-                                </div><br>
-                                <div class="form-group input-group">
-                                    <input type="text" class="form-control"  placeholder="CPF" name="cpf" >
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-default" type="button"><i class="fa fa-search"></i>
-                                        </button>
-                                    </span>
+                                    <select class="form-control">
+                                        <option>Tipo de Acesso</option>
+                                        <option>Funcionario</option>
+                                        <option>Administrador</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-control">
+                                        <option>Setor</option>
+                                        <option>Setor 01</option>
+                                        <option>Setor 02</option>
+                                        <option>Setor 03</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Nome Completo" name="nome" type="text" autofocus>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Telefone" name="telefone" type="text" autofocus>
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Login" name="login" type="text">
