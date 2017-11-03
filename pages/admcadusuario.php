@@ -8,6 +8,7 @@ session_start();
         header("Location: login.php");
     endif;
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -147,10 +148,18 @@ session_start();
                                 <div class="form-group">
                                     <select class="form-control">
                                         <option  hidden>Setor</option>
-                                        <option>Setor 01</option>
-                                        <option>Setor 02</option>
-                                        <option>Setor 03</option>
-                                    </select>
+                                        <?php                                         
+                                        require "../arquivos/conexao.php";
+                                        
+                                            //Select - Listar todos setores cadastrados no banco de dados (tb_setor)
+                                            $sqlbuscasetor=$pdo->prepare ("SELECT * FROM tb_setor");
+                                            $sqlbuscasetor->execute();
+                                        
+                                            while($buscasetor=$sqlbuscasetor->fetch(PDO::FETCH_ASSOC)){
+                                                echo "<option>".$buscasetor['nome']."</option>";
+                                            }
+                                        ?>                                    
+                                        </select>
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Nome Completo" name="nome" type="text" autofocus>
