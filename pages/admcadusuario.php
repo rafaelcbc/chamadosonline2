@@ -139,14 +139,14 @@ session_start();
                                 ?>
                                 <div class="form-group">
                                     <select class="form-control">
-                                        <option>Tipo de Acesso</option>
+                                        <option hidden>Tipo de Acesso</option>
                                         <option>Funcionario</option>
                                         <option>Administrador</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <select class="form-control">
-                                        <option>Setor</option>
+                                        <option  hidden>Setor</option>
                                         <option>Setor 01</option>
                                         <option>Setor 02</option>
                                         <option>Setor 03</option>
