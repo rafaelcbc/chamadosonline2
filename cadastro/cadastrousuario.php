@@ -1,6 +1,6 @@
 <?php 
-session_start();
 
+require "../arquivos/seguranca_admin.php";
 require "../arquivos/conexao.php";
 
 //Verifica o botão cadastrar usuário foi clicado.
@@ -27,7 +27,7 @@ if(isset($_POST['cadastrarusuario'])):
 
         $perfil = 2;
     
-    endif;
+    endif; //id perfil
 
     //Descobrindo o id do setor
     $sqlidsetor=$pdo->prepare("SELECT id, nome FROM tb_setor WHERE nome = ? ");
@@ -36,14 +36,12 @@ if(isset($_POST['cadastrarusuario'])):
 
     $idsetor = $sqlidsetor->fetch(PDO::FETCH_ASSOC);
 
-    endif;
-
     //Verifica se a senha digita foi repetida corretamente.
     if ($senha != $repetirsenha):
         
         //Caso seja diferente, exibe alerta de erro.
         $_SESSION['erro'] = "<div class='alert alert-danger alert-dismissable'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>A senha não confere.</div>";
-        header("Location: ../pages/admcadusuario.php");
+        header("Location: ../pages/admindex.php?link=2");
 
     else: 
 
@@ -54,14 +52,14 @@ if(isset($_POST['cadastrarusuario'])):
         $sqlcadusuario->bindValue(3,md5($senha));
         $sqlcadusuario->bindValue(4,md5($telefone));
         $sqlcadusuario->bindValue(5,$email);
-        $sqlcadusuario->bindValue(6,md5($idsetor['id']));
+        $sqlcadusuario->bindValue(6,$idsetor['id']);
         $sqlcadusuario->bindValue(7,$perfil);
         $sqlcadusuario->bindValue(8,true);
         $sqlcadusuario->execute();
 
         //Mensagem de cadastro realizado com sucesso.
         $_SESSION['sucess'] = "<div class='alert alert-success alert-dismissable'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Usuário cadastrado com sucesso.</div>";
-        header("Location: ../pages/admcadusuario.php");
+        header("Location: ../pages/admindex.php?link=2");
 
     endif;
 endif;
