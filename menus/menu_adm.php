@@ -8,7 +8,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 
-                <a class="navbar-brand" href="admindex.php">Sistema de Chamados</a>
+                <a class="navbar-brand" href="admindex.php?link=1">Sistema de Chamados</a>
                 
                 <ul class="nav navbar-top-links navbar-right text-right">
                     <!-- /.dropdown -->
