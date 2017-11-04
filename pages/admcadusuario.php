@@ -21,7 +21,7 @@ session_start();
     <meta name="author" content="">
 
     <title>Sistema de Chamados</title>
-
+    
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -139,14 +139,14 @@ session_start();
                                     endif;
                                 ?>
                                 <div class="form-group">
-                                    <select class="form-control">
+                                    <select class="form-control" name=" tipodeacesso">
                                         <option hidden>Tipo de Acesso</option>
                                         <option>Funcionario</option>
                                         <option>Administrador</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <select class="form-control">
+                                    <select class="form-control" name="setores">
                                         <option  hidden>Setor</option>
                                         <?php                                         
                                         require "../arquivos/conexao.php";
