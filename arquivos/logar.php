@@ -16,6 +16,8 @@ if(isset($_POST['logar'])):
 
     $perfil = $sqlperfil->fetch(PDO::FETCH_ASSOC);
 
+    $perfil['nome'] = strtolower($perfil['nome']);
+
 endif;
 
 if(!empty($usuario) AND !empty($senha)):
