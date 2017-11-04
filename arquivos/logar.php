@@ -2,6 +2,8 @@
 session_start();
 
 require "../arquivos/conexao.php";
+require "../arquivos/conexao.php";
+
 
 if(isset($_POST['logar'])):
 

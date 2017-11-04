@@ -1,5 +1,4 @@
 <?php 
-session_start();
         
     if(isset($_SESSION['logado_admin']) or $_SESSION['perfil'] != "administrador"):
         unset($_SESSION['logado_admin'], $_SESSION['perfil']);

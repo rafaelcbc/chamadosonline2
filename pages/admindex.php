@@ -1,12 +1,5 @@
 <?php 
-session_start();
-
-    //Controle de acesso as página, conforme sessão ativa.
-    if(!isset($_SESSION['logado_admin']) or $_SESSION['perfil'] != "administrador"):
-        unset($_SESSION['logado_funcionario'], $_SESSION['perfil']);
-        $_SESSION['alerta_login'] = "<div class='alert alert-danger alert-dismissable'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Acesso negado.</div>";
-        header("Location: login.php");
-    endif;
+    require "../arquivos/seguranca_admin.php";
 ?>
 <!DOCTYPE php>
 <html lang="en">
@@ -21,128 +14,44 @@ session_start();
 
     <title>Sistema de Chamados</title>
 
-    <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- MetisMenu CSS -->
     <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
     <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
-
-    <!-- Morris Charts CSS -->
     <link href="../vendor/morrisjs/morris.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
     <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-    <!-- php5 Shim and Respond.js IE8 support of php5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/php5shiv/3.7.0/php5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
 
 </head>
 
 <body>
 
-    <div id="wrapper">
+    <?php
 
-        <!-- Navigation -->
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                
-                <a class="navbar-brand" href="admindex.php">Sistema de Chamados</a>
-                
-                <ul class="nav navbar-top-links navbar-right text-right">
-                    <!-- /.dropdown -->
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
-                        </a>
-                        <ul class="dropdown-menu dropdown-user">
-                            <li>
-                                <a href="#"><i class="fa fa-user fa-fw"></i> Perfil</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-gear fa-fw"></i> Configurações</a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="../arquivos/sair.php"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
-                            </li>
-                        </ul>
-                        <!-- /.dropdown-user -->
-                    </li>
-                    <!-- /.dropdown -->
-                </ul>
-            </div>
-            <!-- /.navbar-header -->
+    include ("../menus/menu_adm.php");
 
-            <!-- /.navbar-top-links -->
-            <div class="navbar-default sidebar" role="navigation">
-                <div class="sidebar-nav navbar-collapse">
-                    <ul class="nav" id="side-menu">
-                        <li>
-                            <a href="admindex.php"><i class="fa fa-home fa-fw"></i> Principal</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-edit fa-fw"></i> Cadastro<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="admcadusuario.php"><i class="fa fa-users fa-fw"></i> Usuário</a>
-                                </li>
-                                <li>
-                                    <a href="admcadsetor.php"><i class="fa fa-print fa-fw"></i> Setor</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <!-- /.navbar-static-side -->
-        </nav>
-
-        <div id="page-wrapper">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header">Bem Vindo Nome!</h1>
-                </div>
-                <!-- /.col-lg-12 -->
-                <div class="col-lg-12">
-                    <h3>Para iniciar selecione uma opção no menu.</h3>
-                </div>
-            </div>
+    $pag[1] = "../pages/bem_vindo.php";
+    $pag[2] = "../pages/admcadusuario.php";
+    $pag[3] = "../pages/admcadsetor.php";
+    $pag[4] = "../arquivos/sair.php";
+    
+    if (!empty($_GET["link"])):
+        if (file_exists($pag[$_GET["link"]])):
+            include $pag[$_GET["link"]];
             
-        </div>
-        <!-- /#page-wrapper -->
+        else:
+            include "bem_vindo.php";
+        endif;
+    else:
+        include "bem_vindo.php";
+    endif;
+    ?>
 
-    </div>
-    <!-- /#wrapper -->
 
-    <!-- jQuery -->
     <script src="../vendor/jquery/jquery.min.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
     <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
-
-    <!-- Metis Menu Plugin JavaScript -->
     <script src="../vendor/metisMenu/metisMenu.min.js"></script>
-
-    <!-- Morris Charts JavaScript -->
     <script src="../vendor/raphael/raphael.min.js"></script>
     <script src="../vendor/morrisjs/morris.min.js"></script>
     <script src="../data/morris-data.js"></script>
-
-    <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
 
 </body>
