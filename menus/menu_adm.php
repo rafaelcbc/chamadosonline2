@@ -25,7 +25,7 @@
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="admindex.php?link=4"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
+                                <a href="../arquivos/sair.php"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
                             </li>
                         </ul>
                         <!-- /.dropdown-user -->
