@@ -14,6 +14,7 @@
 
     <title>Sistema de Chamados</title>
 
+	<!-- arquivos css -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
     <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
@@ -28,10 +29,9 @@
 
     include ("../menus/menu_adm.php");
 
-    $pag[1] = "../pages/bem_vindo.php";
-    $pag[2] = "../pages/admcadusuario.php";
-    $pag[3] = "../pages/admcadsetor.php";
-    $pag[4] = "../arquivos/sair.php";
+    $pag[1] = "bem_vindo.php";
+    $pag[2] = "admcadusuario.php";
+    $pag[3] = "admcadsetor.php";
     
     if (!empty($_GET["link"])):
         if (file_exists($pag[$_GET["link"]])):
@@ -45,7 +45,7 @@
     endif;
     ?>
 
-
+	<!-- arquivos javascript -->
     <script src="../vendor/jquery/jquery.min.js"></script>
     <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
     <script src="../vendor/metisMenu/metisMenu.min.js"></script>
