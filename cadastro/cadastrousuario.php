@@ -50,7 +50,7 @@ if(isset($_POST['cadastrarusuario'])):
         $sqlcadusuario->bindValue(1,$nome);
         $sqlcadusuario->bindValue(2,$login);
         $sqlcadusuario->bindValue(3,md5($senha));
-        $sqlcadusuario->bindValue(4,md5($telefone));
+        $sqlcadusuario->bindValue(4,$telefone);
         $sqlcadusuario->bindValue(5,$email);
         $sqlcadusuario->bindValue(6,$idsetor['id']);
         $sqlcadusuario->bindValue(7,$perfil);

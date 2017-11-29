@@ -5,7 +5,7 @@
     endif;
 
     if(isset($_SESSION['logado_admin']) or $_SESSION['perfil'] != "administrador"):
-    unset($_SESSION['logado_admin'], $_SESSION['perfil']);
+     unset($_SESSION['logado_admin'], $_SESSION['perfil']);
     endif;
 
     if(isset($_SESSION['logado_funcionario'])or $_SESSION['perfil'] != "funcionario"):

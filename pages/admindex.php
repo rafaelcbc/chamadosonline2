@@ -1,7 +1,7 @@
 <?php 
     require "../arquivos/seguranca_admin.php";
 ?>
-<!DOCTYPE php>
+<!DOCTYPE hmtl>
 <html lang="en">
 
 <head>
