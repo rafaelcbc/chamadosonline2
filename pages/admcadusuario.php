@@ -16,7 +16,7 @@
 			<div class="panel-body">
 				<form role="form" action="../cadastro/cadastrousuario.php" method="post">
 					<fieldset>
-						<?php    
+						<?php
 							if (isset($_SESSION['erro'])):
 								echo $_SESSION['erro'];
 								unset ($_SESSION['erro']);
