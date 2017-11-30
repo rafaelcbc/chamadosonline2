@@ -20,6 +20,7 @@
     <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
     <link href="../vendor/morrisjs/morris.css" rel="stylesheet">
     <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
 
 </head>
 
@@ -53,6 +54,7 @@
     <script src="../vendor/morrisjs/morris.min.js"></script>
     <script src="../data/morris-data.js"></script>
     <script src="../dist/js/sb-admin-2.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
 
 </body>
 

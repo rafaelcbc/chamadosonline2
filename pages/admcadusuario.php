@@ -1,5 +1,5 @@
 <?php 
-    require "../arquivos/seguranca_admin.php";
+	require "../arquivos/seguranca_admin.php";
 ?>
 
 <div id="page-wrapper">
@@ -55,13 +55,13 @@
 							<input class="form-control" placeholder="Nome Completo" name="nome" type="text" autofocus>
 						</div>
 						<div class="form-group">
-							<input class="form-control" placeholder="Telefone" name="telefone" type="text" autofocus>
+							<input class="form-control" placeholder="Telefone" name="telefone" data-mask="(00) 0000-0000" data-mask-selectonfocus="true" type="text" autofocus>
 						</div>
 						<div class="form-group">
 							<input class="form-control" placeholder="Login" name="login" type="text">
 						</div>
 						<div class="form-group">
-								<input class="form-control" placeholder="E-mail" name="email" type="email">
+								<input class="form-control" placeholder="E-mail" name="email" type="email" value="login">
 							</div>
 						<div class="form-group">
 							<input class="form-control" placeholder="Senha" name="senha" type="password" value="">
