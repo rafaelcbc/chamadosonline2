@@ -1,7 +1,7 @@
 <div id="page-wrapper">
 	<div class="row">
 		<div class="col-lg-12">
-			<h1 class="page-header">Bem Vindo Nome!</h1>
+			<h1 class="page-header">Bem Vindo, <?php echo $_SESSION['dadosusuario']['Nome']?>!</h1>
 		</div>
 		<!-- /.col-lg-12 -->
 		<div class="col-lg-12">
