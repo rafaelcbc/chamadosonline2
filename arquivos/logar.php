@@ -28,9 +28,12 @@ if(!empty($usuario) AND !empty($senha)):
     $login->bindValue(3,$perfil['id']);
     $login->execute();
 
+    $dados = $login->fetch(PDO::FETCH_ASSOC);
+
     $_SESSION['perfil'] = $perfil['nome'];
 
     if($login->rowCount() == 1):
+        $_SESSION['dadosusuario'] = $dados;
 
         switch($perfil['nome']):
             case "administrador":
