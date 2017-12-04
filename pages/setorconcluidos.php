@@ -22,39 +22,60 @@
 					<table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
 						<thead>
 							<tr>
-								<th>Autor</th>
-								<th>Data e Hora de Abertura</th>
-								<th>Estado</th>
-								<th>Prioridade</th>
-								<th>Título</th>
-								<th>Descrição</th>
+								<th class="text-center">Autor</th>
+								<th class="text-center">Data e Hora de Abertura</th>
+								<th class="text-center">Estado</th>
+								<th class="text-center">Prioridade</th>
+								<th class="text-center">Título</th>
+								<th class="text-center">Descrição</th>
 							</tr>
 						</thead>
 						<tbody>
+							<?php
+							require "../arquivos/conexao.php";
+
+								$sqlchamadossetor=$pdo->prepare("SELECT * FROM tb_chamado WHERE id_SetorDestino = ? AND status = 'Concluído'");
+								$sqlchamadossetor->bindValue (1, $_SESSION['dadosusuario']['Id_Setor']);
+								$sqlchamadossetor->execute();
+
+								while($chamadossetor = $sqlchamadossetor->fetch(PDO::FETCH_ASSOC)):
+							?>
 							<tr>
-								<td>Rafael Cardoso</td>
-								<td>24/10/2017 20:53</td>
-								<td>Aberto</td>
-								<td>Normal</td>
-								<td>Troca de Equipamento</td>
-								<td><a href="#">Ver mais</a></td>
-							</tr>
-							<tr>
-								<td>Igor Bernardo</td>
-								<td>23/10/2017 20:02</td>
-								<td>Em análise</td>
-								<td>Urgente</td>
-								<td>Troca de Equipamento</td>
-								<td><a href="#">Ver mais</a></td>
-							</tr>
-							<tr>
-								<td>Judith Ribeiro</td>
-								<td>22/10/2017 20:24</td>
-								<td>Reaberto</td>
-								<td>Alta</td>
-								<td>Troca de Equipamento</td>
-								<td><a href="#">Ver mais</a></td>
-							</tr>
+								<td><?php echo $chamadossetor['nome_UsuarioAutor'];?></td>
+								<td><?php echo $chamadossetor['data_hora_abertura'];?></td>
+								<td><?php echo $chamadossetor['status'];?></td>
+								<td><?php echo $chamadossetor['prioridade'];?></td>
+								<td><?php echo $chamadossetor['titulo'];?></td>
+								<td class="text-center">
+								<a href="#" data-toggle="modal" data-target="#myModal">
+									<i class="fa fa-eye fa-fw"></i> Ver mais
+								</a>
+								<!-- Modal -->
+								<div class="modal fade" id="myModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+												<h4 class="modal-title" id="myModalLabel">Descrição</h4>
+											</div>
+											<div class="modal-body">
+												<p class="text-justify">
+													<?php echo $chamadossetor['Descricao'];?>
+												</p>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+											</div>
+										</div>
+										<!-- /.modal-content -->
+									</div>
+									<!-- /.modal-dialog -->
+								</div>
+								<!-- /.modal -->
+							</td>					
+						</tr>
+							<?php
+								endwhile;
+							?>
 						</tbody>
 					</table>
 					<!-- /.table-responsive -->

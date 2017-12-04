@@ -27,62 +27,52 @@
 						</thead>
 						<tbody>
 							<tr>
-								<td>Rafael de Carvalho Brasileiro Cardoso</td>
-								<td>24/10/2017 20:53</td>
-								<td>Aberto</td>
-								<td>Normal</td>
-								<td>Troca de Equipamento</td>
+							<?php
+							require "../arquivos/conexao.php";
+	
+								$sqlchamadossetor=$pdo->prepare("SELECT * FROM tb_chamado WHERE id_UsuarioAutor = ? AND status = 'Concluído'");
+								$sqlchamadossetor->bindValue (1, $_SESSION['dadosusuario']['Id']);
+								$sqlchamadossetor->execute();
+	
+								while($chamadossetor = $sqlchamadossetor->fetch(PDO::FETCH_ASSOC)):
+							?>
+							<tr>
+								<td><?php echo $chamadossetor['nome_UsuarioAutor'];?></td>
+								<td><?php echo $chamadossetor['data_hora_abertura'];?></td>
+								<td><?php echo $chamadossetor['status'];?></td>
+								<td><?php echo $chamadossetor['prioridade'];?></td>
+								<td><?php echo $chamadossetor['titulo'];?></td>
 								<td class="text-center">
-									<a href="#" data-toggle="modal" data-target="#myModal">
-										<i class="fa fa-eye fa-fw"></i> Ver mais
-									</a>
-									<!-- Modal -->
-									<div class="modal fade" id="myModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-										<div class="modal-dialog">
-											<div class="modal-content">
-												<div class="modal-header">
-													<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-													<h4 class="modal-title" id="myModalLabel">Descrição</h4>
-												</div>
-												<div class="modal-body">
-													<p class="text-justify">
-														Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.
-													</p>
-												<div class="modal-footer">
-													<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-												</div>
+								<a href="#" data-toggle="modal" data-target="#myModal">
+									<i class="fa fa-eye fa-fw"></i> Ver mais
+								</a>
+								<!-- Modal -->
+								<div class="modal fade" id="myModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+												<h4 class="modal-title" id="myModalLabel">Descrição</h4>
 											</div>
-											<!-- /.modal-content -->
+											<div class="modal-body">
+												<p class="text-justify">
+													<?php echo $chamadossetor['Descricao'];?>
+												</p>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+											</div>
 										</div>
-										<!-- /.modal-dialog -->
+										<!-- /.modal-content -->
 									</div>
-									<!-- /.modal -->
-								</td>
-							</tr>
-							<tr>
-								<td>Igor Bernardo</td>
-								<td>23/10/2017 20:02</td>
-								<td>Em análise</td>
-								<td>Urgente</td>
-								<td>Troca de Equipamento</td>
-								<td class="text-center">
-									<a href="#" data-toggle="modal" data-target="#myModal">
-										<i class="fa fa-eye fa-fw"></i> Ver mais
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>Judith Ribeiro</td>
-								<td>22/10/2017 20:24</td>
-								<td>Reaberto</td>
-								<td>Alta</td>
-								<td>Troca de Equipamento</td>
-								<td class="text-center">
-									<a href="#" data-toggle="modal" data-target="#myModal">
-										<i class="fa fa-eye fa-fw"></i> Ver mais
-									</a>
-								</td>
-							</tr>
+									<!-- /.modal-dialog -->
+								</div>
+								<!-- /.modal -->
+							</td>
+						</tr>
+							<?php
+								endwhile;
+							?>
+
 						</tbody>
 					</table>
 					<!-- /.table-responsive -->

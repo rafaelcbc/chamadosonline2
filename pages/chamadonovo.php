@@ -15,6 +15,12 @@
 				<div class="panel-body">
 					<form role="form"action = "../cadastro/cadastrochamado.php" method = "POST">
 						<fieldset>
+						<?php   
+							if (isset($_SESSION['sucess'])):
+								echo $_SESSION['sucess'];
+								unset ($_SESSION['sucess']);
+							endif;
+						?>
 							<div class="form-group">
 								<select class="form-control" name="setordestino">
 									<option hidden>Setor de Destino</option>
