@@ -61,7 +61,7 @@
 							<input class="form-control" placeholder="Login" name="login" type="text">
 						</div>
 						<div class="form-group">
-								<input class="form-control" placeholder="E-mail" name="email" type="email" value="login">
+								<input class="form-control" placeholder="E-mail" name="email" type="email">
 							</div>
 						<div class="form-group">
 							<input class="form-control" placeholder="Senha" name="senha" type="password" value="">
